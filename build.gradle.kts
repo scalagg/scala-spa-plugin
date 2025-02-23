@@ -1,5 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.ir.backend.js.compile
 
 plugins {
     java
@@ -28,7 +29,7 @@ allprojects {
 
 dependencies {
     compileOnly(kotlin("stdlib"))
-    api(fileTree("lib"))
+    compileOnly(fileTree("lib"))
 
     kapt("gg.scala.commons:bukkit:3.4.5")
     compileOnly("gg.scala.commons:bukkit:3.4.5")
