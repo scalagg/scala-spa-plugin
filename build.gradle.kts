@@ -10,11 +10,13 @@ plugins {
     id("org.ajoberstar.grgit") version "4.1.1"
 }
 
-//var currentBranch: String = grgit.branch.current().name
+var currentBranch: String = grgit.branch.current().name
 
 allprojects {
     group = "gg.scala.spa"
-    version = "1.1.2"
+    version = "1.1.2${
+        if (currentBranch == "develop") "-dev" else ""
+    }"
 
     repositories {
         mavenCentral()
